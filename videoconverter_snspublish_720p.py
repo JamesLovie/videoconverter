@@ -1,4 +1,7 @@
 import boto3
+import json
+import urllib
+import os
 
 def lambda_handler(event, context):
     print("Received event: " + json.dumps(event))
@@ -6,9 +9,7 @@ def lambda_handler(event, context):
     # Get the object from the event
     key = urllib.parse.unquote_plus(
         event['Records'][0]['s3']['object']['key'], encoding='utf-8')
-
-    filename = os.path.splitext(key)[0]  # filename w/o extension
-
+    print(key)
     # Create an SNS client
     sns = boto3.client('sns')
 
