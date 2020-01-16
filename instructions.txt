@@ -13,6 +13,7 @@ zip -g videoconverter_720p.zip videoconverter_720p.py
 zip -g videoconverter_1080p.zip videoconverter_1080p.py
 
 Create two lambda functions with a role that allows for access to SQS and Elastic Transcoder AWS services.
+Create a lambda function called videoconverter_snspublish which will pass in an event with the S3 object name which has been uploaded. This will then send an SNS message with the object name to an SNS topic.
 Upload zip file for each python script to each Lambda function.
 Make sure lambda function Handler is 'videoconverter_720p.lambda_handler'
 Set the environment variables.

@@ -15,6 +15,8 @@ s3 = boto3.resource('s3')
 def lambda_handler(event, context):
     print("Received event: " + json.dumps(event))
 
+    key = event['Records'][0]['Sns']['Message']
+
     filename = os.path.splitext(key)[0]  # filename w/o extension
 
     # Create a job
