@@ -1,3 +1,15 @@
+A key factor in event-driven approaches to software solutions is that the system must tolerate failure. In this example, by combining SNS and its 'fanout' functionality with SQS queues, an event 'uploading a new media file' to a target S3 bucket, pushes a message through the system that is then placed in a queue before processing some transcoding before outputting the file to an S3 bucket.
+
+In an event-driven system, it’s common to want to have one event cause multiple actions. In some circumstances, I want to have lots of actions triggered by a single event.
+
+Messages can remain in the queue for up to 14 days, provided the setting MessageRetentionPeriod has been set to hold message for that long.
+
+Both SNS and SQS benefit from automated scaling and if there is a failure in one of the encoding pipelines, the event message will reappear in the queue. The consumer can then attempt to process the message again. This allows for users to continue to upload new videos, with the front-end or user interface displaying no interuptions, while the backend processing may queue the videos to be processed. Once the pipeline service has come back online, the jobs will then be picked up again off of the queue and processed.
+
+Below are the steps I have taken to employ the architecture.
+
+
+
 git clone https://github.com … /videoconverter.git
 virtualenv videoconverter
 cd videoconverter
