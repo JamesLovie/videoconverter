@@ -32,3 +32,11 @@ Subscribe both SQS queues to the one topic.
 Allow S3 permission to publish message to SNS topic.
 Each SQS queue invokes a job in an Elastic Transcoder pipeline for each video quality.
 After each job has finished, the resulting converted video file is saved to the output S3 buckets.
+
+When updating lambda function code, you can also use the CLI to help speed up the process.
+
+aws lambda update-function-code \                                                   
+    --function-name  videoconverter_1080p \
+    --zip-file fileb://videoconverter_1080p.zip
+
+

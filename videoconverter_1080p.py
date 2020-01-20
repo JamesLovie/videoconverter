@@ -15,7 +15,8 @@ s3 = boto3.resource('s3')
 def lambda_handler(event, context):
     print("Received event: " + json.dumps(event))
 
-    key = event['Records'][0]['Sns']['Message']
+    key = json.loads(event['Records'][0]['body'])['Message']
+    print(f'Object Name: {key}')
 
     filename = os.path.splitext(key)[0]  # filename w/o extension
 
