@@ -12,8 +12,8 @@ Below are the steps I have taken to employ the architecture.
 
 
 
-git clone https://github.com … /videoconverter.git
-virtualenv videoconverter
+* git clone https://github.com … /videoconverter.git
+* virtualenv videoconverter
 cd videoconverter
 cd bin
 source activate
