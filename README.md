@@ -1,3 +1,5 @@
+# Video Converter Architecture
+
 A key factor in event-driven approaches to software solutions is that the system must tolerate failure. In this example, by combining SNS and its 'fanout' functionality with SQS queues, an event 'uploading a new media file' to a target S3 bucket, pushes a message through the system that is then placed in a queue before processing some transcoding before outputting the file to an S3 bucket.
 
 In an event-driven system, it’s common to want to have one event cause multiple actions. In some circumstances, I want to have lots of actions triggered by a single event.
