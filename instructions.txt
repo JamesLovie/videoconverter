@@ -39,4 +39,6 @@ aws lambda update-function-code \
     --function-name  videoconverter_1080p \
     --zip-file fileb://videoconverter_1080p.zip
 
+aws configure set default.region us-east-1
+
 

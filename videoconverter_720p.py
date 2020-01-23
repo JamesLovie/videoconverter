@@ -1,4 +1,3 @@
-# This code belongs to Linux Academy, I have simply changed it to suit my task.
 # Video Converter Lambda Function: To convert an mp4 video from its source format to 720p.
 from datetime import datetime
 import json
